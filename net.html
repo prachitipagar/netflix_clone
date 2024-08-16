@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NetFlix</title>
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: black;
+        color: white;
+      }
+      .header {
+        height: 100vh;
+        width: 100%;
+        background-image: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.8) 0,
+            rgba(0, 0, 0, 0) 60%,
+            rgba(0, 0, 0, 0.8) 100%
+          ),
+          url(./net.jpg);
+        background-size: cover;
+        background-position: center;
+        padding: 10px 8%;
+      }
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+      }
+      h1 {
+        color: rgb(229, 9, 20);
+        font-size: 45px;
+      }
+      nav button {
+        background-color: red;
+        color: white;
+        border-radius: 4px;
+        margin-left: 10px;
+        font-size: 12px;
+        padding: 10px 10px;
+        border: none;
+      }
+      #lan1 {
+        padding: 8px 34px;
+        background-color: transparent;
+        border-color: rgba(0, 0, 0, 0);
+        color: white;
+        border: 1px solid white;
+        border-radius: 4px;
+        text-align: center;
+        font: inherit;
+        letter-spacing: inherit;
+        filter: opacity(100%);
+        font-size: 15px;
+        color: inherit;
+        /*-webkit-filter: opacity( 100% );*/
+      }
+      .con {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        line-height: 50px;
+      }
+      .con h1 {
+        font-size: 40px;
+        color: white;
+        text-align: center;
+        /*font-weight: 2000;*/
+        font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu,
+          sans-serif;
+      }
+      .con p {
+        font-size: 25px;
+        font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu,
+          sans-serif;
+      }
+      .con h3 {
+        font-weight: 400;
+        line-height: 1.5;
+        font-size: 20px;
+        font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu,
+          sans-serif;
+      }
+      .mail {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px 16px 8px;
+        gap: 16px;
+      }
+      .mail input {
+        padding: 11px 110px 15px 20px;
+        color: white;
+        font-size: 15px;
+        border-radius: 4px;
+        background-color: rgba(0, 0, 0, 0.6);
+        text-shadow: none;
+      }
+      .mail button {
+        color: white;
+        background: rgb(229, 9, 20);
+        font-weight: 500;
+        font-size: 20px;
+        border-radius: 4px;
+        letter-spacing: normal;
+        line-height: 1;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 11px 101px 15px 20px;
+      }
+      hr {
+        border: 3.5px solid rgb(65, 64, 64);
+      }
+      /*.features{
+            padding: 72px 0px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            height: 100%;
+            box-sizing: border-box;
+            display: block;
+        }
+        .sec{
+            margin: auto;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+        .features h2{
+            color: white;
+            display: block;
+            font-size: 32px;
+            font-family: Netflix Sans,Helvetica Neue,Segoe UI,Roboto,Ubuntu,sans-serif;
+        }
+        .features p{
+            color: white;
+            font-size: 16px;
+            font-family: Netflix Sans,Helvetica Neue,Segoe UI,Roboto,Ubuntu,sans-serif;;
+        }
+        .video{
+            flex-basis: 50%;
+        }*/
+      .sec {
+        padding: 30px 12px;
+      }
+      .features {
+        display: flex;
+        /*flex-direction: row;*/
+        width: 100%;
+        align-items: center;
+        flex-wrap: wrap;
+        padding: 30px 0px;
+      }
+      .text {
+        margin: 20px;
+        font-family: Netflix Sans, Helvetica Neue, Segoe UI, Roboto, Ubuntu,
+          sans-serif;
+        color: white;
+      }
+      .spec1 {
+        margin: 20px;
+        border: 0px;
+        position: relative;
+      }
+      .spec1 img {
+        margin: auto;
+        display: block;
+        width: 90%;
+        height: 350px;
+        width: 350px;
+      }
+      .sec h2 {
+        font-size: 32px;
+      }
+      .sec p {
+        font-size: 15px;
+      }
+      /*.tasks{
+        position: relative;
+        display: flex;;
+        justify-content: center;
+        color: rgb(255,255,255);
+        text-align: center;
+        height: 100%;
+        box-sizing: border-box;
+        min-height: auto;
+        padding: 3.5rem 0;
+        border: 1px solid white;
+        display: block;
+        font-family: Netflix Sans,Helvetica Neue,Segoe UI,Roboto,Ubuntu,sans-serif;
+      }
+      .sets{
+        margin: auto;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        border: 1px solid white;
+      }
+      .que{
+        flex-basis: 50%;
+        padding: 0;
+        z-index: 1;
+        width: 100%;
+      }
+      .list{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-indent: 0;
+        margin: 0 0 0.5rem 0;
+      }
+      .list1{
+        font-size: 1.125rem;
+        font-weight: 400;
+        display: block;
+      }
+      .list1 ul{
+        list-style-type: disc;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 40px;
+      }
+      .ops{
+        display: list-item;
+        text-align: -webkit-match-parent;
+      }
+      .head3{
+        margin: 0;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        font-size: inherit;
+        font-weight: inherit;
+        margin-bottom: 0.0625rem;
+        position: relative;
+        background-color: rgb(45,45,45);
+        color: rgb(255,255,255);
+        transition-duration: 250ms;
+        transition-property: background-color;
+        transition-timing-function: cubic-bezier(0.9, 0, 0.51, 1);
+      }
+      .button{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
+        background: none;
+        border-radius: 0;
+        border: 0;
+        box-sizing: content-box;
+        color: inherit;
+        cursor: default;
+        display: inline;
+        font: inherit;
+        letter-spacing: inherit;
+        line-height: inherit;
+        margin: 0;
+        padding: 0;
+        -webkit-text-decoration: none;
+        text-decoration: none;
+        width: 100%;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -webkit-justify-content: space-between;
+        justify-content: space-between;
+        -webkit-align-items: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        color: inherit;
+        font-family: inherit;
+        font-size: inherit;
+        text-align: left
+      }*/
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <nav>
+        <h1>NETFLIX</h1>
+        <div>
+          <select id="lan1" name="lan">
+            <option selected="">English</option>
+            <option>हिन्दी</option>
+          </select>
+          <button>Sign In</button>
+        </div>
+      </nav>
+      <div class="con">
+        <h1>Laughter. Tears. Thrills. Find it all on <br />Netflix.</h1>
+        <p>Endless entertainment starts at just ₹149. Cancel anytime.</p>
+        <h3>
+          Ready to watch? Enter your email to create or restart your membership.
+        </h3>
+        <form action="" class="mail">
+          <input type="email" placeholder="Email address" required />
+          <button type="submit">Get Started ></button>
+        </form>
+      </div>
+    </div>
+    <hr />
+    <div class="sec">
+      <div class="features">
+        <div class="text">
+          <h2 class="head1">Enjoy on your TV</h2>
+          <p class="par1">
+            Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray
+            players and more.
+          </p>
+        </div>
+        <div class="spec1">
+          <img src="./tv.png" alt="" />
+        </div>
+      </div>
+      <hr />
+      <div class="features">
+        <div class="spec1">
+          <img src="./mobile-0819.jpg" alt="" />
+        </div>
+        <div class="text">
+          <h2 class="head1">Download your shows to watch offline</h2>
+          <p class="par1">
+            Save your favourites easily and always have something to watch
+          </p>
+        </div>
+      </div>
+      <hr />
+      <div class="features">
+        <div class="text">
+          <h2 class="head1">Watch everywhere</h2>
+          <p class="par1">
+            Stream unlimited movies and TV shows on your phone, tablet, laptop,
+            and TV.
+          </p>
+        </div>
+        <div class="spec1">
+          <img src="./device-pile-in.png" alt="" />
+        </div>
+      </div>
+      <hr />
+      <div class="features">
+        <div class="spec1">
+          <img src="./chil.png" alt="" />
+        </div>
+        <div class="text">
+          <h2 class="head1">Watch everywhere</h2>
+          <p class="par1">
+            Send children on adventures with their favourite characters in a
+            space made just for them—free with your membership.
+          </p> 
+        </div>
+      </div>
+      <hr>
+      <!-- <div class="tasks">
+        <div class="sets">
+          <div class="que">
+            <h2 class="head1">Frequently Asked Questions</h2>
+            <div class="list">
+              <ul class="list1">
+                <li class="ops">
+                  <h3 class="head2">
+                    <button class="button">
+                      <span class="span">What is Netflix?</span>
+                    </button>
+                  </h3>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div class="task">
+
+      </div>
+    </div>
+  </body>
+</html>
